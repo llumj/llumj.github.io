@@ -3,18 +3,21 @@ project:
   output-dir: docs
 
 website:
-  title: "llumj.github.io"
+  title: "Joshua Mull"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - resources.qmd
+      
 
 format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
+    toc: False
+    page-layout: full
 
-editor: visual
+
 

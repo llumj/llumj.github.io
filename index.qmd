@@ -1,5 +1,24 @@
 ---
-title: "llumj.github.io"
+title: "Joshua Mull"
+image: IMG_2705.JPG
+about:
+  template: jolla
+  image-shape: round
+  links: 
+    - text: LinkedIn
+      href: https://www.linkedin.com/jobs/
+      target: _blank
 ---
+
+Hi there! My experiences have led him to pursue a degree in environmental data science. At Bren, Joshua has many interests including conservation, restoration, environmental justice, and energy. He passionately believes the road to an equitable environmental future is going to be through collaboration and transparency.  
+
+
+## Education 
+
+some text 
+
+## Professional Exaperience
+
+some text
 
 

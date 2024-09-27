@@ -5,5 +5,26 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Joshua Mull",
+    "section": "",
+    "text": "Hi there! My experiences have led him to pursue a degree in environmental data science. At Bren, Joshua has many interests including conservation, restoration, environmental justice, and energy. He passionately believes the road to an equitable environmental future is going to be through collaboration and transparency."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Joshua Mull",
+    "section": "Education",
+    "text": "Education\nsome text"
+  },
+  {
+    "objectID": "index.html#professional-exaperience",
+    "href": "index.html#professional-exaperience",
+    "title": "Joshua Mull",
+    "section": "Professional Exaperience",
+    "text": "Professional Exaperience\nsome text"
   }
 ]
