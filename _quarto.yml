@@ -14,7 +14,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: simplex
     css: styles.css
     toc: False
     page-layout: full
