@@ -18,9 +18,8 @@ website:
 
 format:
   html:
-    theme: simplex
+    theme: styles.scss
     mainfont: Sixtyfour Convergence
-    css: styles.scss
     toc: False
     page-layout: full
 
