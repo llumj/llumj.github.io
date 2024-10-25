@@ -5,17 +5,22 @@ project:
 website:
   title: "Joshua Mull"
   navbar:
-    left:
+    title: false
+    logo: "logos/2560x1440.png"
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
-      - resources.qmd
+      - href: resources.qmd
+      - text: Resources 
+      - posts.qmd
       
 
 format:
   html:
     theme: simplex
-    css: styles.css
+    mainfont: Sixtyfour Convergence
+    css: styles.scss
     toc: False
     page-layout: full
 

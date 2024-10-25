@@ -1,0 +1,29 @@
+---
+title: "Blog Post Title"
+description: "A short catchy descroption of the blog posts"
+author: 
+  - name: Joshua Mull
+    url: https://llumj.github.io/
+    affiliation: MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
+date: 2024-10-18
+categories: [Quarto, MEDS, something-cool]
+toc: true
+bibliography: references.bib
+---
+
+## This is my first section
+
+I'm going to insert a footnote here[^1]
+
+[^1]: Here is a new footnote
+
+## This is my second section
+
+Here's is my next paragraph[^2]
+
+[^2]: here is my second footnote
+
+I'm citing sam[@csik2022]
+
+Here is more random text and a citation.

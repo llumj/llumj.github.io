@@ -26,5 +26,40 @@
     "title": "Joshua Mull",
     "section": "Professional Exaperience",
     "text": "Professional Exaperience\nTBA"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Blog Post Title\n\n\n\nQuarto\n\n\nMEDS\n\n\nsomething-cool\n\n\n\nA short catchy descroption of the blog posts\n\n\n\nJoshua Mull\n\n\nOct 18, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-second-section",
+    "href": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-second-section",
+    "title": "Blog Post Title",
+    "section": "This is my second section",
+    "text": "This is my second section\nHere’s is my next paragraph2\nI’m citing sam(Csik 2022)\nHere is more random text and a citation."
+  },
+  {
+    "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html",
+    "href": "blog_posts/2024-10-18-My-First-Posts/index.html",
+    "title": "Blog Post Title",
+    "section": "",
+    "text": "I’m going to insert a footnote here1"
+  },
+  {
+    "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-first-section",
+    "href": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-first-section",
+    "title": "Blog Post Title",
+    "section": "",
+    "text": "I’m going to insert a footnote here1"
+  },
+  {
+    "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#footnotes",
+    "href": "blog_posts/2024-10-18-My-First-Posts/index.html#footnotes",
+    "title": "Blog Post Title",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nHere is a new footnote↩︎\nhere is my second footnote↩︎"
   }
 ]
