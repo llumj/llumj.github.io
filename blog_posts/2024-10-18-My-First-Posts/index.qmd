@@ -1,13 +1,13 @@
 ---
-title: "Thomas Fire Blog"
-description: "Falsecolor analysis"
+title: "Thomas Fire"
+description: "A Falsecolor Analysis"
 author: 
   - name: Joshua Mull
     url: https://llumj.github.io/
     affiliation: MEDS
     affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
-date: 2024-10-18
-categories: [Quarto, MEDS, something-cool]
+date: 2024-12-4
+categories: [Quarto, MEDS, Python, EDS220]
 toc: true
 bibliography: references.bib
 ---
