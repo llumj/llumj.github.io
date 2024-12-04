@@ -1,6 +1,6 @@
 ---
-title: "Blog Post Title"
-description: "A short catchy descroption of the blog posts"
+title: "Thomas Fire Blog"
+description: "Falsecolor analysis"
 author: 
   - name: Joshua Mull
     url: https://llumj.github.io/
