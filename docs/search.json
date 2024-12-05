@@ -23,36 +23,36 @@
   {
     "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html",
     "href": "blog_posts/2024-10-18-My-First-Posts/index.html",
-    "title": "Blog Post Title",
+    "title": "Test Blog",
     "section": "",
-    "text": "I’m going to insert a footnote here1"
-  },
-  {
-    "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-first-section",
-    "href": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-first-section",
-    "title": "Blog Post Title",
-    "section": "",
-    "text": "I’m going to insert a footnote here1"
-  },
-  {
-    "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-second-section",
-    "href": "blog_posts/2024-10-18-My-First-Posts/index.html#this-is-my-second-section",
-    "title": "Blog Post Title",
-    "section": "This is my second section",
-    "text": "This is my second section\nHere’s is my next paragraph2\nI’m citing sam(Csik 2022)\nHere is more random text and a citation."
+    "text": "library(reticulate)\n\nWarning: package 'reticulate' was built under R version 4.4.2"
   },
   {
     "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#footnotes",
     "href": "blog_posts/2024-10-18-My-First-Posts/index.html#footnotes",
-    "title": "Blog Post Title",
+    "title": "Test Blog",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nHere is a new footnote↩︎\nhere is my second footnote↩︎"
+    "text": "Footnotes\n\n\nhttps://en.wikipedia.org/wiki/Thomas_Fire?form=MG0AV3↩︎\nhttps://www.fire.ca.gov/incidents/2017/?form=MG0AV3↩︎\nhttps://www.fire.ca.gov/incidents/2017/?form=MG0AV3↩︎\nhttps://www.epa.gov/↩︎\nhttps://www.epa.gov/↩︎"
+  },
+  {
+    "objectID": "blog_posts/2024-12-04-Thomas-Fire/hwk4-task2-fire-perimeter-Mull (2).html",
+    "href": "blog_posts/2024-12-04-Thomas-Fire/hwk4-task2-fire-perimeter-Mull (2).html",
+    "title": "A Closer Look: Visualizing the Thomas Fire and AQI analysis with Remote Sensing",
+    "section": "",
+    "text": "Alt Text"
+  },
+  {
+    "objectID": "blog_posts/2024-12-04-Thomas-Fire/hwk4-task2-fire-perimeter-Mull (2).html#footnotes",
+    "href": "blog_posts/2024-12-04-Thomas-Fire/hwk4-task2-fire-perimeter-Mull (2).html#footnotes",
+    "title": "A Closer Look: Visualizing the Thomas Fire and AQI analysis with Remote Sensing",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://www.epa.gov/↩︎\nhttps://www.epa.gov/↩︎"
   },
   {
     "objectID": "posts.html",
     "href": "posts.html",
     "title": "Blog",
     "section": "",
-    "text": "Blog Post Title\n\n\n\nQuarto\n\n\nMEDS\n\n\nsomething-cool\n\n\n\nA short catchy descroption of the blog posts\n\n\n\nJoshua Mull\n\n\nOct 18, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Test Blog\n\n\n\nQuarto\n\n\nMEDS\n\n\nPython\n\n\nEDS220\n\n\n\nTest Description\n\n\n\nJoshua Mull\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA Closer Look: Visualizing the Thomas Fire and AQI analysis with Remote Sensing\n\n\n\nQuarto\n\n\nMEDS\n\n\nPython\n\n\nEDS220\n\n\n\nAnalysis and Visualization of the Thomas Fire Using Satellite Imagery and Geospatial Data\n\n\n\nJoshua Mull\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

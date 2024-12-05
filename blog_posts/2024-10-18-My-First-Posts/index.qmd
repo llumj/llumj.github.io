@@ -1,6 +1,6 @@
 ---
-title: "Thomas Fire"
-description: "A Falsecolor Analysis"
+title: "Test Blog"
+description: "Test Description"
 author: 
   - name: Joshua Mull
     url: https://llumj.github.io/
@@ -10,19 +10,57 @@ date: 2024-12-4
 categories: [Quarto, MEDS, Python, EDS220]
 toc: true
 bibliography: references.bib
+editor_options: 
+  chunk_output_type: console
 ---
+```{r}
+library(reticulate)
+```
 
-## This is my first section
 
-I'm going to insert a footnote here[^1]
+### Impacts of the Fire 
+The Thomas Fire, which ignited on December 4, 2017, and burned until January 12, 2018, stands as one of the most devastating wildfires in California's history. Spanning over 281,893 acres (approximately 1,141 square kilometers), it destroyed 1,063 structures and caused damages exceeding $2.2 billion. The fire's impact on air quality was profound, with particulate matter levels soaring and the Air Quality Index (AQI) reaching hazardous levels in affected areas[^1] [^2].
 
-[^1]: Here is a new footnote
+In this blog post, we delve into the use of false color imagery and AQI analysis to uncover the environmental and health impacts of the Thomas Fire. By leveraging satellite data and geospatial analysis, we aim to provide a comprehensive understanding of how this catastrophic event altered the landscape and air quality, offering insights into the broader implications of wildfires on public health and environmental sustainability
 
-## This is my second section
+### About the Data
+Fire Perimeter: Shapefile of the Thomas Fire perimeter, obtained from the California Department of Forestry and Fire Protection (CAL FIRE) [^2]
 
-Here's is my next paragraph[^2]
+Satellite Imagery: Landsat 8 imagery accessed via the server at UCSB
 
-[^2]: here is my second footnote
+AQI Data[^3]: This dataset is a dataframe with AQI values of cities all across the US. Retrieved from The U.S. Environmental Protection Agency [^3]
+
+### False Color: A Quick Overview
+False color imagery is a powerful tool used in remote sensing to enhance specific features of the landscape that might not be visible in natural color images. By assigning visible colors (like red, green, and blue) to spectral bands that the human eye cannot see (such as near-infrared), false color images highlight various aspects of the environment. For instance, healthy vegetation reflects more infrared light and appears bright red in false color images, while burned areas, like those from the Thomas Fire, show up in darker hues, making them easier to distinguish.
+
+### The Anaylsis 
+
+#### Import Neccessary Packages 
+```{python}
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+import geopandas as gpd
+import rioxarray as rioxr
+import matplotlib.ticker as ticker
+from matplotlib.patches import Patch
+```
+
+
+
+
+### Fire Data Exploration 
+The dataset from California Department of Forestry and Fire Protection has over 22,000 fires between the years 1878 and 2023. 
+
+
+[^1]: https://en.wikipedia.org/wiki/Thomas_Fire?form=MG0AV3
+
+[^2]: https://www.fire.ca.gov/incidents/2017/?form=MG0AV3
+
+[^3]: https://www.epa.gov/
+
+
+
 
 I'm citing sam[@csik2022]
 
