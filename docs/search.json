@@ -23,16 +23,16 @@
   {
     "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html",
     "href": "blog_posts/2024-10-18-My-First-Posts/index.html",
-    "title": "Test Blog",
+    "title": "Tick Terrains: Tracking the Territory of Maine’s Tiniest Terrors",
     "section": "",
-    "text": "library(reticulate)\n\nWarning: package 'reticulate' was built under R version 4.4.2"
+    "text": "Portland Head Light, the oldest lighthouse in Maine 1"
   },
   {
     "objectID": "blog_posts/2024-10-18-My-First-Posts/index.html#footnotes",
     "href": "blog_posts/2024-10-18-My-First-Posts/index.html#footnotes",
-    "title": "Test Blog",
+    "title": "Tick Terrains: Tracking the Territory of Maine’s Tiniest Terrors",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://en.wikipedia.org/wiki/Thomas_Fire?form=MG0AV3↩︎\nhttps://www.fire.ca.gov/incidents/2017/?form=MG0AV3↩︎\nhttps://www.fire.ca.gov/incidents/2017/?form=MG0AV3↩︎\nhttps://www.epa.gov/↩︎\nhttps://www.epa.gov/↩︎"
+    "text": "Footnotes\n\n\nhttps://thedownlo.com/north-america-travel/usa-travel/maine/the-ultimate-maine-bucketlist-58-things-to-do-in-maine/↩︎\nhttps://www.kitteryme.gov/climate-action-planning-kittery/pages/climate-change-maine↩︎\nhttps://www.noaa.gov/↩︎\nhttps://www.cdc.gov/↩︎"
   },
   {
     "objectID": "blog_posts/2024-12-04-Thomas-Fire/hwk4-task2-fire-perimeter-Mull (2).html",
@@ -53,6 +53,6 @@
     "href": "posts.html",
     "title": "Blog",
     "section": "",
-    "text": "Test Blog\n\n\n\nQuarto\n\n\nMEDS\n\n\nPython\n\n\nEDS220\n\n\n\nTest Description\n\n\n\nJoshua Mull\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA Closer Look: Visualizing the Thomas Fire and AQI analysis with Remote Sensing\n\n\n\nQuarto\n\n\nMEDS\n\n\nPython\n\n\nEDS220\n\n\n\nAnalysis and Visualization of the Thomas Fire Using Satellite Imagery and Geospatial Data\n\n\n\nJoshua Mull\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Tick Terrains: Tracking the Territory of Maine’s Tiniest Terrors\n\n\n\nQuarto\n\n\nMEDS\n\n\nPython\n\n\nEDS220\n\n\n\nFrom the environmental factors driving their population surges to the implications for public health, this blog uncovers the mysteries surrounding ticks in the Pine Tree…\n\n\n\nJoshua Mull\n\n\nDec 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA Closer Look: Visualizing the Thomas Fire and AQI analysis with Remote Sensing\n\n\n\nQuarto\n\n\nMEDS\n\n\nPython\n\n\nEDS220\n\n\n\nAnalysis and Visualization of the Thomas Fire Using Satellite Imagery and Geospatial Data\n\n\n\nJoshua Mull\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
