@@ -57,27 +57,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -227,9 +207,17 @@ div.csl-indent {
   <ul>
   <li><a href="#maines-marvels-discovering-the-pine-tree-state" id="toc-maines-marvels-discovering-the-pine-tree-state" class="nav-link active" data-scroll-target="#maines-marvels-discovering-the-pine-tree-state">Maine’s Marvels: Discovering the Pine Tree State</a></li>
   <li><a href="#maine-a-changing-climate" id="toc-maine-a-changing-climate" class="nav-link" data-scroll-target="#maine-a-changing-climate">Maine, A Changing Climate</a></li>
+  <li><a href="#the-hypothesis" id="toc-the-hypothesis" class="nav-link" data-scroll-target="#the-hypothesis">The Hypothesis</a></li>
   <li><a href="#ticks-a-very-brief-history" id="toc-ticks-a-very-brief-history" class="nav-link" data-scroll-target="#ticks-a-very-brief-history">Ticks, A Very Brief History</a></li>
   <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
-  <li><a href="#fire-data-exploration" id="toc-fire-data-exploration" class="nav-link" data-scroll-target="#fire-data-exploration">Fire Data Exploration</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">👇👇</a></li>
+  <li><a href="#exploratory-linear-regressions" id="toc-exploratory-linear-regressions" class="nav-link" data-scroll-target="#exploratory-linear-regressions">Exploratory Linear Regressions</a></li>
+  <li><a href="#first-hypothysis-reject-the-null" id="toc-first-hypothysis-reject-the-null" class="nav-link" data-scroll-target="#first-hypothysis-reject-the-null">First Hypothysis, Reject the Null</a></li>
+  <li><a href="#second-hypothysis-fail-to-reject-the-null" id="toc-second-hypothysis-fail-to-reject-the-null" class="nav-link" data-scroll-target="#second-hypothysis-fail-to-reject-the-null">Second Hypothysis, Fail to Reject the Null</a></li>
+  <li><a href="#omitted-variable-bias" id="toc-omitted-variable-bias" class="nav-link" data-scroll-target="#omitted-variable-bias">Omitted Variable Bias?</a></li>
+  <li><a href="#create-new-model-to-include-population" id="toc-create-new-model-to-include-population" class="nav-link" data-scroll-target="#create-new-model-to-include-population">Create New Model to Include Population</a></li>
+  <li><a href="#what-about-climate-change" id="toc-what-about-climate-change" class="nav-link" data-scroll-target="#what-about-climate-change">What About Climate Change?</a></li>
+  <li><a href="#forecasting-cases-for-cumberland-county" id="toc-forecasting-cases-for-cumberland-county" class="nav-link" data-scroll-target="#forecasting-cases-for-cumberland-county">Forecasting Cases for Cumberland County</a></li>
   </ul>
 </nav>
     </div>
@@ -243,7 +231,7 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="maine.jpg" class="img-fluid figure-img"></p>
-<figcaption>Portland Head Light, the oldest lighthouse in Maine. https://thedownlo.com/north-america-travel/usa-travel/maine/the-ultimate-maine-bucketlist-58-things-to-do-in-maine/</figcaption>
+<figcaption>Portland Head Light, the oldest lighthouse in Maine <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption>
 </figure>
 </div>
 <section id="maines-marvels-discovering-the-pine-tree-state" class="level3">
@@ -252,19 +240,30 @@ div.csl-indent {
 </section>
 <section id="maine-a-changing-climate" class="level3">
 <h3 class="anchored" data-anchor-id="maine-a-changing-climate">Maine, A Changing Climate</h3>
-<p>In a world where the effects of climate change are becoming increasingly evident, Maine has not been immune to its impacts. Over the past century, the state known for its beautiful autumn colors, rocky coast and snowy winters, has experienced a significant shift in its climate. Changes that include average yearly temperatures rising by 3.5 degrees (F) and annual precipitation increasing by 6 inches. These climatic changes have brought about a range of environmental consequences, one of which is the proliferation of ticks. As Maine’s climate becomes warmer and wetter, the conditions become more favorable for ticks to thrive, posing new challenges for both public health and the natural ecosystem.</p>
+<p>In a world where the effects of climate change are becoming increasingly evident, Maine has not been immune to its impacts. Over the past century, the state known for its beautiful autumn colors, rocky coast and snowy winters, has experienced a significant shift in its climate. Changes that include average yearly temperatures rising by 3.5 degrees (F) and annual precipitation increasing by 6 inches <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. These climatic changes have brought about a range of environmental consequences, one of which is the proliferation of ticks. As Maine’s climate becomes warmer and wetter, the conditions become more favorable for ticks to thrive, posing new challenges for both public health and the natural ecosystem.</p>
 <p>While ticks may seem like tiny, insignificant creatures, their presence carries significant risks. Among the most concerning is Lyme disease, a serious illness transmitted through the bite of infected ticks. Lyme disease can cause a range of symptoms, from fever and fatigue to severe neurological and cardiovascular issues if left untreated. This makes understanding and managing tick populations crucial for public health. Our comprehensive analysis delves into the environmental and biological factors contributing to the rise in tick numbers, aiming to uncover patterns and provide strategies to mitigate the risks associated with these persistent pests.</p>
+</section>
+<section id="the-hypothesis" class="level3">
+<h3 class="anchored" data-anchor-id="the-hypothesis">The Hypothesis</h3>
+<p>The two main hypothesis being tested in this blog are:</p>
+<p><strong>First:</strong></p>
+<p><em>H₀ (Null) -&gt; Temp and precipitation have no affect on LD case</em></p>
+<p><em>H₁ (Alternative) -&gt; Temp and precipitation do affect LD case</em></p>
+<p><strong>Second:</strong></p>
+<p><em>H₀ (Null) -&gt; Coastal counties have no affect on cases of Lyme disease</em></p>
+<p><em>H₁ (Alternative) -&gt; Coastal counties do have an affect on cases of Lyme disease</em></p>
+<p><img src="meme_h.png" class="img-fluid"></p>
 </section>
 <section id="ticks-a-very-brief-history" class="level3">
 <h3 class="anchored" data-anchor-id="ticks-a-very-brief-history">Ticks, A Very Brief History</h3>
 <p>Ticks have their own quirky version of the circle of life, which might as well be called the “Cycle of Bites.” Starting off as eggs laid by a tick mom who’s ready to see the world, these tiny terrors hatch into larvae with a taste for small creatures. After their first meal, they morph into nymphs, which are basically teenage ticks with an insatiable hunger for larger hosts—think bigger animals or unlucky humans. Once they’ve had their fill, they finally grow up to become adult ticks, ready to party (read: feed) on the blood of their next unsuspecting victim. Rinse and repeat! It’s like an endless buffet where the ticks are always the guests of honor, and we’re the main course. 🦟🍴</p>
-<p><strong>Myth: Ticks Jump from Trees 🌳</strong> <strong>Reality Check:</strong> <strong><em>Contrary to the acrobatics you might imagine, ticks don’t jump, fly, or parachute down from trees like tiny ninjas. They generally hang out in grass and bushes, waiting to hitch a ride on unsuspecting passersby</em></strong></p>
+<p><strong>Myth: Ticks Jump from Trees 🌳</strong> <strong>Reality Check:</strong> <strong><em>Contrary to the acrobatics you might imagine, ticks don’t jump, fly, or parachute down from trees like tiny ninjas. They generally hang out in grass and bushes, waiting to hitch a ride on unsuspecting passersby.</em></strong></p>
 </section>
 <section id="the-data" class="level3">
 <h3 class="anchored" data-anchor-id="the-data">The Data</h3>
-<p>For the analysis in this blog I used data from The National Oceanic and Atmospheric Administration (NOAA) and The Centers for Disease Control (CDC). From NOAA this includes average yearly temperature and precipitation for each county from 2016-2022. From the CDC this was total number of Lyme disease (LD) cases for each county form the same time range. Each year was a separate .csv file that needed to be filtered and joined with the LD cases dataframe. Lets peak a some quick snapshots of what that looked like!</p>
+<p>For the analysis in this blog I used data from The National Oceanic and Atmospheric Administration (NOAA) <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and The Centers for Disease Control (CDC) <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. From NOAA this includes average yearly temperature and precipitation for each county from 2016-2022. From the CDC this was total number of Lyme disease (LD) cases for each county form the same time range. Each year was a separate .csv file that needed to be filtered and joined with the LD cases dataframe. Lets peak a some quick snapshots of what that looked like!</p>
 <section id="import-neccessary-packages" class="level4">
-<h4 class="anchored" data-anchor-id="import-neccessary-packages">Import Neccessary Packages</h4>
+<h4 class="anchored" data-anchor-id="import-neccessary-packages">Import neccessary packages</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -273,22 +272,534 @@ div.csl-indent {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="fire-data-exploration" class="level3">
-<h3 class="anchored" data-anchor-id="fire-data-exploration">Fire Data Exploration</h3>
-<p>The dataset from California Department of Forestry and Fire Protection has over 22,000 fires between the years 1878 and 2023.</p>
-<p>I’m citing sam<span class="citation" data-cites="csik2022">(<a href="#ref-csik2022" role="doc-biblioref">Csik 2022</a>)</span></p>
-<p>Here is more random text and a citation.</p>
-
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-csik2022" class="csl-entry" role="listitem">
-Csik, Samantha. 2022. <span>“Adding a Blog to Your Existing <span>Quarto</span> Website.”</span> October 24, 2022. <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/</a>.
+<section id="read-in-data" class="level4">
+<h4 class="anchored" data-anchor-id="read-in-data">Read in data</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temp data sets</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>temp_16 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2016.csv"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>temp_17 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2017.csv"</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>temp_18 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2018.csv"</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>temp_19 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2019.csv"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>temp_20 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2020.csv"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>temp_21 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2021.csv"</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>temp_22 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"temp2022.csv"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Precipitation data sets</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>precip_16 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2016.csv"</span>))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>precip_17 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2017.csv"</span>))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>precip_18 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2018.csv"</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>precip_19 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2019.csv"</span>))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>precip_20 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2020.csv"</span>))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>precip_21 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2021.csv"</span>))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>precip_22 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"precip2022.csv"</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Lyme disease data sets</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>LD_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"LD_Case_Counts_by_County_2022.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div></section></div></main> <!-- /main -->
+<p>As you can see the data and temp data is separated by year. The LD_data variable holds every single LD cases in the country over a 20 years span. We do not want that, so lets filter that down to just cases in Maine from 2016-2022 and check out the first few rows.</p>
+<p><strong>Myth:</strong> <strong>A Full Moon Makes Ticks More Active 🌕</strong> <strong><em>Reality Check: While werewolves might howl at the moon, ticks don’t pay much attention to lunar phases. Their activity levels are more influenced by temperature and humidity.</em></strong></p>
+</section>
+<section id="filter-ld-lyme-disease-data-for-maine-and-columns-needs" class="level4">
+<h4 class="anchored" data-anchor-id="filter-ld-lyme-disease-data-for-maine-and-columns-needs">Filter LD (Lyme Disease) data for Maine and columns needs</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean the names </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>LD_data <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(LD_data)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>LD_maine <span class="ot">&lt;-</span> LD_data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(stname <span class="sc">==</span> <span class="st">"Maine"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ctyname, stname, ststatus, ctycode, cases2016, cases2017, cases2018, cases2019, cases2020, cases2021, cases2022)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-out-the-first-few-rows" class="level4">
+<h4 class="anchored" data-anchor-id="check-out-the-first-few-rows">Check Out the first few rows</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(LD_maine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  ctyname        stname ststatus ctycode cases2016 cases2017 cases2018 cases2019
+  &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 Androscoggin … Maine  High In…       1        92        96        68        98
+2 Aroostook Cou… Maine  High In…       3         1         8         4         2
+3 Cumberland Co… Maine  High In…       5       310       319       284       354
+4 Franklin Coun… Maine  High In…       7         3        24        13        39
+5 Hancock County Maine  High In…       9       150       204       174       192
+6 Kennebec Coun… Maine  High In…      11       204       266       181       277
+# ℹ 3 more variables: cases2020 &lt;dbl&gt;, cases2021 &lt;dbl&gt;, cases2022 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Now we just have a table of LD cases in Maine and with the same time frame as our temp and precipitation data. Now, I did some more filtering, renaming of columns, adding a year column, and making coastal binary to eventually get to a point of preforming a left join with the CDC data. This will be collapsed in the code chunk below. Feel free to check it out.</p>
+</section>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">👇👇</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Filter and clean temp and precip data for the columns that we want to keep, rename the value column to match the data. i.e °F for temp and inches for rain </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>temp_16_cl <span class="ot">&lt;-</span> temp_16 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>temp_17_cl <span class="ot">&lt;-</span> temp_17 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>temp_18_cl <span class="ot">&lt;-</span> temp_18 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>temp_19_cl <span class="ot">&lt;-</span> temp_19 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>temp_20_cl <span class="ot">&lt;-</span> temp_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>temp_21_cl <span class="ot">&lt;-</span> temp_21 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>temp_22_cl <span class="ot">&lt;-</span> temp_22 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">degf =</span> value)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>precip_16_cl <span class="ot">&lt;-</span> precip_16 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>precip_17_cl <span class="ot">&lt;-</span> precip_17 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>precip_18_cl <span class="ot">&lt;-</span> precip_18 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>precip_19_cl <span class="ot">&lt;-</span> precip_19 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>precip_20_cl <span class="ot">&lt;-</span> precip_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>precip_21_cl <span class="ot">&lt;-</span> precip_21 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>precip_22_cl <span class="ot">&lt;-</span> precip_22 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Name, State, Value) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">inches =</span> value)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Add years to temp and precip data</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>temp_16_cl <span class="ot">&lt;-</span> temp_16_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2016</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>temp_17_cl <span class="ot">&lt;-</span> temp_17_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2017</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>temp_18_cl <span class="ot">&lt;-</span> temp_18_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2018</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>temp_19_cl <span class="ot">&lt;-</span> temp_19_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2019</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>temp_20_cl <span class="ot">&lt;-</span> temp_20_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2020</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>temp_21_cl <span class="ot">&lt;-</span> temp_21_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2021</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>temp_22_cl <span class="ot">&lt;-</span> temp_22_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>precip_16_cl <span class="ot">&lt;-</span> precip_16_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2016</span>)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>precip_17_cl <span class="ot">&lt;-</span> precip_17_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2017</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>precip_18_cl <span class="ot">&lt;-</span> precip_18_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2018</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>precip_19_cl <span class="ot">&lt;-</span> precip_19_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2019</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>precip_20_cl <span class="ot">&lt;-</span> precip_20_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2020</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>precip_21_cl <span class="ot">&lt;-</span> precip_21_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2021</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>precip_22_cl <span class="ot">&lt;-</span> precip_22_cl <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2022</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="co">#Bring in LD cases into each data frame</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># First change the name of ctyname to Name </span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>LD_maine <span class="ot">&lt;-</span> LD_maine <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">name =</span> ctyname)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull in cases column for each dataframe with left join </span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>temp_16_cl <span class="ot">&lt;-</span> temp_16_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2016), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>temp_17_cl <span class="ot">&lt;-</span> temp_17_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2017), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>temp_18_cl <span class="ot">&lt;-</span> temp_18_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2018), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>temp_19_cl <span class="ot">&lt;-</span> temp_19_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2019), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>temp_20_cl <span class="ot">&lt;-</span> temp_20_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2020), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>temp_21_cl <span class="ot">&lt;-</span> temp_21_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2021), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>temp_22_cl <span class="ot">&lt;-</span> temp_22_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2022), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Same for precip</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>precip_16_cl <span class="ot">&lt;-</span> precip_16_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2016), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>precip_17_cl <span class="ot">&lt;-</span> precip_17_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2017), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>precip_18_cl <span class="ot">&lt;-</span> precip_18_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2018), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>precip_19_cl <span class="ot">&lt;-</span> precip_19_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2019), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>precip_20_cl <span class="ot">&lt;-</span> precip_20_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2020), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>precip_21_cl <span class="ot">&lt;-</span> precip_21_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2021), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>precip_22_cl <span class="ot">&lt;-</span> precip_22_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(LD_maine <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, cases2022), <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>                                      </span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="do">#### Renmame each column to just cases</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>temp_16_cl <span class="ot">&lt;-</span> temp_16_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2016)</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>temp_17_cl <span class="ot">&lt;-</span> temp_17_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2017)</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>temp_18_cl <span class="ot">&lt;-</span> temp_18_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2018)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>temp_19_cl <span class="ot">&lt;-</span> temp_19_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2019)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>temp_20_cl <span class="ot">&lt;-</span> temp_20_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2020)</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>temp_21_cl <span class="ot">&lt;-</span> temp_21_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2021)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>temp_22_cl <span class="ot">&lt;-</span> temp_22_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2022)</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>precip_16_cl <span class="ot">&lt;-</span> precip_16_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2016)</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>precip_17_cl <span class="ot">&lt;-</span> precip_17_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2017)</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>precip_18_cl <span class="ot">&lt;-</span> precip_18_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2018)</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>precip_19_cl <span class="ot">&lt;-</span> precip_19_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2019)</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>precip_20_cl <span class="ot">&lt;-</span> precip_20_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2020)</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>precip_21_cl <span class="ot">&lt;-</span> precip_21_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2021)</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>precip_22_cl <span class="ot">&lt;-</span> precip_22_cl <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">cases =</span> cases2022)</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="do">#### Bring in precip to temp data frames with left join</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>temp_16_precip <span class="ot">&lt;-</span> temp_16_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_16_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>temp_17_precip <span class="ot">&lt;-</span> temp_17_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_17_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>temp_18_precip <span class="ot">&lt;-</span> temp_18_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_18_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>temp_19_precip <span class="ot">&lt;-</span> temp_19_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_19_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>temp_20_precip <span class="ot">&lt;-</span> temp_20_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_20_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>temp_21_precip <span class="ot">&lt;-</span> temp_21_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_21_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>temp_22_precip <span class="ot">&lt;-</span> temp_22_cl <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(precip_22_cl <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, inches), <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Finally, merge the dataframes into one </span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>LD_maine_weather <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(temp_16_precip,</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>                              temp_17_precip,</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>                              temp_18_precip, </span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>                              temp_19_precip, </span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>                              temp_20_precip, </span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>                              temp_21_precip, </span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>                              temp_22_precip)</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="co"># Add Boolean value for coastal counties. 1 is yes 0 is no</span></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector of coastal counties </span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>coastal_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"York County"</span>, <span class="st">"Cumberland County"</span>, <span class="st">"Sagadahoc County"</span>, <span class="st">"Lincoln County"</span>, <span class="st">"Knox County"</span>, <span class="st">"Waldo County"</span>, <span class="st">"Hancock County"</span>, <span class="st">"Washington County"</span>, <span class="st">"Kennebec County"</span>)</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>LD_maine_weather <span class="ot">&lt;-</span> LD_maine_weather <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">coastal =</span> <span class="fu">ifelse</span>(name <span class="sc">%in%</span> coastal_counties, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exploratory-linear-regressions" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-linear-regressions">Exploratory Linear Regressions</h3>
+<section id="model-for-temperature-and-ld-cases" class="level4">
+<h4 class="anchored" data-anchor-id="model-for-temperature-and-ld-cases">Model for Temperature and LD Cases</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression for temperature and cases of LD</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model_temp <span class="ot">&lt;-</span> <span class="fu">lm</span>(cases <span class="sc">~</span> degf, <span class="at">data =</span> LD_maine_weather)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(model_temp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cases ~ degf, data = LD_maine_weather)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-135.54  -53.24  -22.20   40.83  238.35 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -724.621    129.004  -5.617 1.48e-07 ***
+degf          18.756      2.898   6.472 2.78e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 78.19 on 110 degrees of freedom
+Multiple R-squared:  0.2757,    Adjusted R-squared:  0.2692 
+F-statistic: 41.88 on 1 and 110 DF,  p-value: 2.781e-09</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>temp_ld_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(LD_maine_weather, <span class="fu">aes</span>(<span class="at">x =</span> degf, <span class="at">y =</span> cases)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Temperature vs. Lyme Disease Cases"</span>, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Average Yearly Temperature (°F)"</span>, </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"LD Cases"</span>) <span class="sc">+</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(temp_ld_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>🚨 Degf (degree Fahrenheit): For each 1°F increase, the LD cases are expected to increase by approximately 18.158 cases. p-value (5.25e-09) indicates this relationship is statistically significant.🚨</p>
+<section id="model-for-rain-and-ld-cases" class="level5">
+<h5 class="anchored" data-anchor-id="model-for-rain-and-ld-cases">Model for Rain and LD Cases</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression for rain and cases of LD</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>model_rain <span class="ot">&lt;-</span> <span class="fu">lm</span>(cases <span class="sc">~</span> inches, <span class="at">data =</span> LD_maine_weather)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(model_rain))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cases ~ inches, data = LD_maine_weather)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-149.64  -62.74  -18.33   49.70  237.79 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept) -153.907     79.070  -1.946  0.05415 . 
+inches         5.704      1.707   3.342  0.00114 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 87.55 on 110 degrees of freedom
+Multiple R-squared:  0.09216,   Adjusted R-squared:  0.08391 
+F-statistic: 11.17 on 1 and 110 DF,  p-value: 0.001139</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>rain_ld_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(LD_maine_weather, <span class="fu">aes</span>(<span class="at">x =</span> inches, <span class="at">y =</span> cases)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Precipitation vs. Lyme Disease Cases"</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Average Yearly Precipitation (in)"</span>, </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"LD Cases"</span>) <span class="sc">+</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rain_ld_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>🚨 Inches (6.008): For each additional inch, the number of LD cases is expected to increase by approximately 6.008. This relationship is also statistically significant given the very low p-value (0.000466).🚨</p>
+</section>
+</section>
+</section>
+<section id="first-hypothysis-reject-the-null" class="level3">
+<h3 class="anchored" data-anchor-id="first-hypothysis-reject-the-null">First Hypothysis, Reject the Null</h3>
+<p>It should not be that surprising that temperature and precipitation are indeed significant predictors in the number of LD cases. Still it is important to check your assumptions. Without checking this information, our model could be seriously flawed.</p>
+<p>Now let’s add coastal to the model.</p>
+<section id="linear-regression-cases-temperature-and-precipitation-and-coastal-boolean" class="level4">
+<h4 class="anchored" data-anchor-id="linear-regression-cases-temperature-and-precipitation-and-coastal-boolean">Linear Regression: Cases, Temperature and Precipitation and Coastal (Boolean)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(cases <span class="sc">~</span> degf <span class="sc">+</span> inches <span class="sc">+</span> coastal, <span class="at">data =</span> LD_maine_weather)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(lm_model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cases ~ degf + inches + coastal, data = LD_maine_weather)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-139.862  -35.764   -8.491   34.576  200.477 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept) -653.427    209.430  -3.120  0.00232 **
+degf          12.266      4.178   2.936  0.00407 **
+inches         4.175      1.569   2.661  0.00898 **
+coastal       44.196     22.541   1.961  0.05249 . 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 72.85 on 108 degrees of freedom
+Multiple R-squared:  0.3827,    Adjusted R-squared:  0.3656 
+F-statistic: 22.32 on 3 and 108 DF,  p-value: 2.539e-11</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="second-hypothysis-fail-to-reject-the-null" class="level3">
+<h3 class="anchored" data-anchor-id="second-hypothysis-fail-to-reject-the-null">Second Hypothysis, Fail to Reject the Null</h3>
+<p>The model above revealed several key insights into the factors influencing Lyme disease cases in Maine. P-values for the temperature (degf) and rainfall (inches) are significant predictors of Lyme disease cases, with both variables showing a positive relationship with the number of cases. This means that as temperatures and precipitation increase, so do the instances of Lyme disease. Additionally, coastal was not significant in predicting Lyme disease cases. This means <strong><em>we fail to reject the null hypothesis</em></strong>. Overall, the model explains approximately 38.27% of the variance in Lyme disease cases, indicating that while these factors are important, other variables may also play a role in driving the trends we observe.</p>
+</section>
+<section id="omitted-variable-bias" class="level3">
+<h3 class="anchored" data-anchor-id="omitted-variable-bias">Omitted Variable Bias?</h3>
+<p>Since our model had such a low R Squared, it points to the potential of something missing. What about population? Surely the more people would mean more cases? Let’s add pop data for each year and county in the dataframe. Then check the head to verify.</p>
+<section id="accounting-for-population" class="level4">
+<h4 class="anchored" data-anchor-id="accounting-for-population">Accounting for Population</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame with population data for Maine counties from 2020 to 2022</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>population_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">rep</span>(<span class="dv">2020</span><span class="sc">:</span><span class="dv">2022</span>, <span class="at">each =</span> <span class="dv">16</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Androscoggin County"</span>, <span class="st">"Aroostook County"</span>, <span class="st">"Cumberland County"</span>, <span class="st">"Franklin County"</span>, <span class="st">"Hancock County"</span>, <span class="st">"Kennebec County"</span>, <span class="st">"Knox County"</span>, <span class="st">"Lincoln County"</span>, <span class="st">"Oxford County"</span>, <span class="st">"Penobscot County"</span>, <span class="st">"Piscataquis County"</span>, <span class="st">"Sagadahoc County"</span>, <span class="st">"Somerset County"</span>, <span class="st">"Waldo County"</span>, <span class="st">"Washington County"</span>, <span class="st">"York County"</span>), <span class="at">times =</span> <span class="dv">3</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">population =</span> <span class="fu">c</span>(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">113765</span>, <span class="dv">67351</span>, <span class="dv">310230</span>, <span class="dv">30828</span>, <span class="dv">56526</span>, <span class="dv">127259</span>, <span class="dv">40977</span>, <span class="dv">36507</span>, <span class="dv">59905</span>, <span class="dv">155312</span>, <span class="dv">17486</span>, <span class="dv">37513</span>, <span class="dv">51302</span>, <span class="dv">40620</span>, <span class="dv">31555</span>, <span class="dv">218586</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">114300</span>, <span class="dv">67400</span>, <span class="dv">310500</span>, <span class="dv">31000</span>, <span class="dv">56600</span>, <span class="dv">127700</span>, <span class="dv">41000</span>, <span class="dv">36700</span>, <span class="dv">60000</span>, <span class="dv">156000</span>, <span class="dv">17500</span>, <span class="dv">37600</span>, <span class="dv">51500</span>, <span class="dv">40700</span>, <span class="dv">31600</span>, <span class="dv">219000</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">114800</span>, <span class="dv">67450</span>, <span class="dv">311000</span>, <span class="dv">31200</span>, <span class="dv">56700</span>, <span class="dv">128000</span>, <span class="dv">41100</span>, <span class="dv">36900</span>, <span class="dv">60100</span>, <span class="dv">157000</span>, <span class="dv">17550</span>, <span class="dv">37700</span>, <span class="dv">51600</span>, <span class="dv">40800</span>, <span class="dv">31700</span>, <span class="dv">220000</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter LD data for just the years we have in population. This is a smaller sample but should give us some indication of correlation </span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>LD_data_pop <span class="ot">&lt;-</span> LD_maine_weather <span class="sc">%&gt;%</span> </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>))</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge pop data to filtered years </span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>LD_pop_maine <span class="ot">&lt;-</span> LD_data_pop <span class="sc">%&gt;%</span> </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(population_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span>, <span class="st">"year"</span>))</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(LD_pop_maine))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+  id     name                state  degf  year cases inches coastal population
+  &lt;chr&gt;  &lt;chr&gt;               &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+1 ME-001 Androscoggin County Maine  46.6  2020    40   46.6       0     113765
+2 ME-003 Aroostook County    Maine  40.9  2020     4   35.8       0      67351
+3 ME-005 Cumberland County   Maine  47.3  2020   178   45.4       1     310230
+4 ME-007 Franklin County     Maine  41.7  2020    18   45.0       0      30828
+5 ME-009 Hancock County      Maine  46.4  2020   117   43.3       1      56526
+6 ME-011 Kennebec County     Maine  46.5  2020   125   45.0       1     127259</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="create-new-model-to-include-population" class="level3">
+<h3 class="anchored" data-anchor-id="create-new-model-to-include-population">Create New Model to Include Population</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create model </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>lm_pop <span class="ot">&lt;-</span> <span class="fu">lm</span>(cases <span class="sc">~</span> degf <span class="sc">+</span> inches <span class="sc">+</span> coastal <span class="sc">+</span> population, <span class="at">data =</span> LD_pop_maine)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(lm_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cases ~ degf + inches + coastal + population, data = LD_pop_maine)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-92.159 -40.379  -7.305  40.052 178.126 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -2.102e+02  3.022e+02  -0.696  0.49030    
+degf        -1.328e+00  6.870e+00  -0.193  0.84764    
+inches       6.597e+00  1.897e+00   3.477  0.00117 ** 
+coastal      6.153e+01  3.048e+01   2.019  0.04976 *  
+population   5.640e-04  1.212e-04   4.654 3.12e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 59.69 on 43 degrees of freedom
+Multiple R-squared:  0.6072,    Adjusted R-squared:  0.5707 
+F-statistic: 16.62 on 4 and 43 DF,  p-value: 2.639e-08</code></pre>
+</div>
+</div>
+<section id="breakdown-of-changes" class="level4">
+<h4 class="anchored" data-anchor-id="breakdown-of-changes">Breakdown of Changes:</h4>
+<p><strong>Intercept:</strong></p>
+<p><strong>Before:</strong> -673.986 (p = 0.00140 **)</p>
+<p><strong>After:</strong> -210.200 (p = 0.49030)</p>
+<p>Change: The intercept changed significantly, indicating that the baseline count of cases (when all predictors are zero) has been adjusted to account for the influence of the population variable. The significance also dropped, becoming non-significant after adding population.</p>
+<p><strong>degf (degrees Fahrenheit):</strong></p>
+<p><strong>Before:</strong> 12.227 (p = 0.00354)</p>
+<p><strong>After:</strong> -1.328 (p = 0.84764)</p>
+<p>Change: The coefficient for degf changed from positive to negative and became non-significant. This suggests that once population is accounted for, the impact of temperature on Lyme Disease cases is not as substantial.</p>
+<p><strong>inches (rainfall):</strong></p>
+<p><strong>Before:</strong> 4.606 (p = 0.00344 **)</p>
+<p><strong>After:</strong> 6.597 (p = 0.00117 **)</p>
+<p>Change: The coefficient for inches increased, indicating a stronger positive relationship between rainfall and Lyme Disease cases. It remained significant, suggesting that rainfall is an important predictor even when population is included.</p>
+<p><strong>coastal (coastal status):</strong></p>
+<p><strong>Before:</strong> 40.153 (p = 0.07230 .)</p>
+<p><strong>After:</strong> 61.530 (p = 0.04976 *)</p>
+<p>Change: The coefficient for coastal increased and became significant at the 0.05 level. This indicates that coastal counties have a higher number of cases, and this relationship is more pronounced after accounting for population.</p>
+<p><strong>population:</strong></p>
+<p>0.000564 (p = 3.12e-05 ***)</p>
+<p>Change: The new population variable shows a positive and highly significant relationship with Lyme Disease cases. As the population increases, the number of cases increases, highlighting the importance of population density in understanding Lyme Disease spread.</p>
+<p><strong>Summary: Adding the population variable:</strong> - Adjusts the intercept and the effects of other predictors. - Decreases the significance of temperature (degf) as a predictor. - Increases the importance and significance of rainfall (inches) and coastal status (coastal). - Adjusted R^2 almost doubled. Now 57% of the variance in the response variable (cases) is explained by the predictors in the model</p>
+</section>
+</section>
+<section id="what-about-climate-change" class="level3">
+<h3 class="anchored" data-anchor-id="what-about-climate-change">What About Climate Change?</h3>
+<p>Maine’s average precipitation for all seven years in the model is 44.9 inches. What if it were to increase precipitation and have all other predictors stay at their mean value? How would that affect LD cases in coastal vs.&nbsp;non-coastal counties?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the range of rainfall (in inches)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>rainfall_range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">45</span>, <span class="dv">50</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean temperature</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>mean_temp <span class="ot">&lt;-</span> <span class="fu">mean</span>(LD_pop_maine<span class="sc">$</span>degf)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a function to generate predictions</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>generate_predictions <span class="ot">&lt;-</span> <span class="cf">function</span>(coastal_status) {</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">inches =</span> rainfall_range,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">cases =</span> <span class="fu">sapply</span>(rainfall_range, <span class="cf">function</span>(rain) {</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">degf =</span> mean_temp,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">inches =</span> rain,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">coastal =</span> coastal_status,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">population =</span> <span class="fu">mean</span>(LD_pop_maine<span class="sc">$</span>population)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">predict</span>(lm_pop, <span class="at">newdata =</span> new_data)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    }),</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">coastal =</span> <span class="fu">ifelse</span>(coastal_status <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Coastal"</span>, <span class="st">"Non-Coastal"</span>)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions for coastal status 0 and 1</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>predictions_coastal <span class="ot">&lt;-</span> <span class="fu">generate_predictions</span>(<span class="dv">1</span>)</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>predictions_non_coastal <span class="ot">&lt;-</span> <span class="fu">generate_predictions</span>(<span class="dv">0</span>)</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine both sets of predictions</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">rbind</span>(predictions_coastal, predictions_non_coastal)</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>parallel_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(predictions, <span class="fu">aes</span>(<span class="at">x =</span> inches, <span class="at">y =</span> cases, <span class="at">color =</span> coastal, <span class="at">group =</span> coastal)) <span class="sc">+</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicted Lyme Disease Cases vs. Rainfall"</span>,</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Precipitation (inches)"</span>,</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Predicted Cases"</span>,</span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Coastal Status"</span>) <span class="sc">+</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(parallel_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="forecasting-cases-for-cumberland-county" class="level3">
+<h3 class="anchored" data-anchor-id="forecasting-cases-for-cumberland-county">Forecasting Cases for Cumberland County</h3>
+<p>Based on the model, what if we wanted to forecast the future cases of Lyme disease for Cumberland county?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create time series, fit ARIMA, and forecast for each county</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>forecast_by_county <span class="ot">&lt;-</span> <span class="cf">function</span>(data, county_name) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  county_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(name <span class="sc">==</span> county_name) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(year)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  county_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(county_data<span class="sc">$</span>cases, <span class="at">start =</span> <span class="fu">min</span>(county_data<span class="sc">$</span>year), <span class="at">frequency =</span> <span class="dv">1</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  arima_model <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(county_ts)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  forecasted_values <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima_model, <span class="at">h =</span> <span class="dv">3</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> arima_model,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">forecast =</span> forecasted_values</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter data for Cumberland </span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>cumberland_forecast <span class="ot">&lt;-</span> <span class="fu">forecast_by_county</span>(LD_maine_weather, <span class="st">"Cumberland County"</span>) </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print forecast for Cumberland </span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"County: Cumberland"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "County: Cumberland"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cumberland_forecast<span class="sc">$</span>forecast) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Point Forecast   Lo 80    Hi 80    Lo 95    Hi 95
+2023       289.4286 204.685 374.1722 159.8244 419.0327
+2024       289.4286 204.685 374.1722 159.8244 419.0327
+2025       289.4286 204.685 374.1722 159.8244 419.0327</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot forecast for Cumberland </span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cumberland_forecast<span class="sc">$</span>forecast, <span class="at">main =</span> <span class="st">"Forecast for Cumberland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The forecast section starts from 2023 onward, shaded in blue and gray, with three blue dots indicating forecasted values for 2023, 2024, and 2025. The shaded blue area around the forecasted values represents 80% confidence interval. Meaning that we are 80% confident that cases will fall in this range. The entire area including the gray, represents 95% confidence interval. Giving an idea of the potential range of future values.</p>
+<section id="lastly-limitations" class="level4">
+<h4 class="anchored" data-anchor-id="lastly-limitations">Lastly, Limitations</h4>
+<p>As comprehensive as our analysis is, it’s important to acknowledge its limitations. - The data for temperature, precipitation, and Lyme disease cases were grouped by year, which does not capture the nuances of seasonality. - Humidity, a significant factor in tick populations, was not included, leading to potential omitted variable bias. - Additionally, the seven-year span of our data set is relatively short for making long-term forecasts. Despite these constraints, our findings provide valuable insights into the environmental factors influencing tick dynamics in Maine. Moving forward, incorporating more granular data and additional variables will enhance our understanding and predictive accuracy. But for now, don’t forget your tick check!</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://thedownlo.com/north-america-travel/usa-travel/maine/the-ultimate-maine-bucketlist-58-things-to-do-in-maine/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://www.kitteryme.gov/climate-action-planning-kittery/pages/climate-change-maine<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://www.noaa.gov/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>https://www.cdc.gov/<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
