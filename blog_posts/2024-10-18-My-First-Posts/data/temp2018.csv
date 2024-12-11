@@ -1,0 +1,17 @@
+ID,Name,State,Value,Anomaly (1901-2000 base period),Rank,1901-2000 Mean
+ME-001,Androscoggin County,Maine,44.9,1.8,108,43.1
+ME-003,Aroostook County,Maine,39.1,1.3,102,37.7
+ME-005,Cumberland County,Maine,45.6,1.7,109,43.9
+ME-007,Franklin County,Maine,40.2,1.9,108,38.4
+ME-009,Hancock County,Maine,44.8,1.8,110,43
+ME-011,Kennebec County,Maine,44.8,1.9,108,43
+ME-013,Knox County,Maine,45,1.7,108,43.3
+ME-015,Lincoln County,Maine,45.5,1.9,109,43.6
+ME-017,Oxford County,Maine,42.4,2,110,40.4
+ME-019,Penobscot County,Maine,42.9,1.8,108,41.1
+ME-021,Piscataquis County,Maine,40,1.6,105,38.3
+ME-023,Sagadahoc County,Maine,45.6,1.8,105,43.9
+ME-025,Somerset County,Maine,40.1,1.5,103,38.6
+ME-027,Waldo County,Maine,44.5,1.8,109,42.7
+ME-029,Washington County,Maine,44.1,2.1,112,42.1
+ME-031,York County,Maine,46.1,1.4,108,44.7

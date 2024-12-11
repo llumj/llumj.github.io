@@ -12,7 +12,6 @@ website:
         text: Home
       - about.qmd
       - href: resources.qmd
-      - text: Resources 
       - posts.qmd
       
 
