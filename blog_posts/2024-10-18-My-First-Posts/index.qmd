@@ -97,7 +97,7 @@ precip_22 <- read_csv(here::here("data", "precip2022.csv"))
 LD_data <- read_csv(here::here("data", "LD_Case_Counts_by_County_2022.csv"))
 ```
 
-**A Quick Note:** This GIF accurately describes how my computer feels about importing excel files with complex columns and rows:
+**A Quick Note:** This GIF accurately describes how my computer feels about importing Excel files with complex columns and rows:
 
 ![](excel_gif.gif)
 
