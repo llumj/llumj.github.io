@@ -240,8 +240,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="maine-a-changing-climate" class="level3">
 <h3 class="anchored" data-anchor-id="maine-a-changing-climate">Maine, A Changing Climate</h3>
-<p>In a world where the effects of climate change are becoming increasingly evident, Maine has not been immune to its impacts. Over the past century, the state known for its beautiful autumn colors, rocky coast and snowy winters, has experienced a significant shift in its climate. Changes that include average yearly temperatures rising by 3.5 degrees (F) and annual precipitation increasing by 6 inches <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. These climatic changes have brought about a range of environmental consequences, one of which is the proliferation of ticks. As Maine’s climate becomes warmer and wetter, the conditions become more favorable for ticks to thrive, posing new challenges for both public health and the natural ecosystem.</p>
-<p>While ticks may seem like tiny, insignificant creatures, their presence carries significant risks. Among the most concerning is Lyme disease, a serious illness transmitted through the bite of infected ticks. Lyme disease can cause a range of symptoms, from fever and fatigue to severe neurological and cardiovascular issues if left untreated. This makes understanding and managing tick populations crucial for public health. Our comprehensive analysis delves into the environmental and biological factors contributing to the rise in tick numbers, aiming to uncover patterns and provide strategies to mitigate the risks associated with these persistent pests.</p>
+<p>There is a big myth that cold winters kill ticks. While this is somewhat factual, it is not that simple. You can look at Maine’s winters as part of the regulation of ticks. If the they do not find away to escape freezing temperatures, like hiding in leaf litter, they can die. In fact, as much as 20% of ticks can die during cold season <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>In a world where the effects of climate change are becoming increasingly evident, Maine has not been immune to its impacts. Over the past century, the state known for its beautiful autumn colors, rocky coast and snowy winters, has experienced a significant shift in its climate. Changes that include average yearly temperatures rising by 3.5 degrees (F) and annual precipitation increasing by 6 inches <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. These climatic changes have brought about a range of environmental consequences, one of which is the proliferation of ticks. As Maine’s climate becomes warmer and wetter, the conditions become more favorable for ticks to thrive, posing new challenges for both public health and the natural ecosystem.</p>
+<p>While ticks may seem like tiny, insignificant creatures, their presence carries significant risks. Among the most concerning is Lyme disease (LD), a serious illness transmitted through the bite of infected ticks. Lyme disease can cause a range of symptoms, from fever and fatigue to severe neurological and cardiovascular issues if left untreated. This makes understanding and managing tick populations crucial for public health. Our comprehensive analysis delves into the environmental and biological factors contributing to the rise in tick numbers, aiming to uncover patterns and provide strategies to mitigate the risks associated with these persistent pests.</p>
 </section>
 <section id="the-hypothesis" class="level3">
 <h3 class="anchored" data-anchor-id="the-hypothesis">The Hypothesis</h3>
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-data" class="level3">
 <h3 class="anchored" data-anchor-id="the-data">The Data</h3>
-<p>For the analysis in this blog I used data from The National Oceanic and Atmospheric Administration (NOAA) <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and The Centers for Disease Control (CDC) <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. From NOAA this includes average yearly temperature and precipitation for each county from 2016-2022. From the CDC this was total number of Lyme disease (LD) cases for each county form the same time range. Each year was a separate .csv file that needed to be filtered and joined with the LD cases dataframe. Lets peak a some quick snapshots of what that looked like!</p>
+<p>For the analysis in this blog I used data from The National Oceanic and Atmospheric Administration (NOAA) <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and The Centers for Disease Control (CDC) <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. From NOAA this includes average yearly temperature and precipitation for each county from 2016-2022. From the CDC this was total number of Lyme disease (LD) cases for each county form the same time range. Each year was a separate .csv file that needed to be filtered and joined with the LD cases dataframe. Lets peak a some quick snapshots of what that looked like!</p>
 <section id="import-neccessary-packages" class="level4">
 <h4 class="anchored" data-anchor-id="import-neccessary-packages">Import neccessary packages</h4>
 <div class="cell">
@@ -296,6 +297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Lyme disease data sets</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>LD_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"LD_Case_Counts_by_County_2022.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><strong>A Quick Note:</strong> This GIF accurately describes how my computer feels about importing excel files with complex columns and rows:</p>
+<p><img src="excel_gif.gif" class="img-fluid"></p>
 <p>As you can see the data and temp data is separated by year. The LD_data variable holds every single LD cases in the country over a 20 years span. We do not want that, so lets filter that down to just cases in Maine from 2016-2022 and check out the first few rows.</p>
 <p><strong>Myth:</strong> <strong>A Full Moon Makes Ticks More Active 🌕</strong> <strong><em>Reality Check: While werewolves might howl at the moon, ticks don’t pay much attention to lunar phases. Their activity levels are more influenced by temperature and humidity.</em></strong></p>
 </section>
@@ -489,7 +492,7 @@ F-statistic: 41.88 on 1 and 110 DF,  p-value: 2.781e-09</code></pre>
 </div>
 </div>
 </div>
-<p>🚨 Degf (degree Fahrenheit): For each 1°F increase, the LD cases are expected to increase by approximately 18.158 cases. p-value (5.25e-09) indicates this relationship is statistically significant.🚨</p>
+<p>🚨 Degf (degree Fahrenheit): For each 1°F increase, the LD cases are expected to increase by approximately 19 cases. P-value (2.78e-09) indicates this relationship is statistically significant.🚨</p>
 <section id="model-for-rain-and-ld-cases" class="level5">
 <h5 class="anchored" data-anchor-id="model-for-rain-and-ld-cases">Model for Rain and LD Cases</h5>
 <div class="cell">
@@ -542,7 +545,8 @@ F-statistic: 11.17 on 1 and 110 DF,  p-value: 0.001139</code></pre>
 </div>
 </div>
 </div>
-<p>🚨 Inches (6.008): For each additional inch, the number of LD cases is expected to increase by approximately 6.008. This relationship is also statistically significant given the very low p-value (0.000466).🚨</p>
+<p>🚨 Inches (6.008): For each additional inch, the number of LD cases is expected to increase by approximately 6. This relationship is also statistically significant given the very low p-value (0.00114).🚨</p>
+<p><strong>Tick Dating 🌹:</strong> <strong><em>Ticks have a rather unusual “dating” life. Female ticks can lay thousands of eggs after a good meal. So, when a female tick says she’s going out for dinner, she’s really planning a family reunion… with thousands of new ticks.</em></strong></p>
 </section>
 </section>
 </section>
@@ -582,11 +586,12 @@ F-statistic: 22.32 on 3 and 108 DF,  p-value: 2.539e-11</code></pre>
 </section>
 <section id="second-hypothysis-fail-to-reject-the-null" class="level3">
 <h3 class="anchored" data-anchor-id="second-hypothysis-fail-to-reject-the-null">Second Hypothysis, Fail to Reject the Null</h3>
-<p>The model above revealed several key insights into the factors influencing Lyme disease cases in Maine. P-values for the temperature (degf) and rainfall (inches) are significant predictors of Lyme disease cases, with both variables showing a positive relationship with the number of cases. This means that as temperatures and precipitation increase, so do the instances of Lyme disease. Additionally, coastal was not significant in predicting Lyme disease cases. This means <strong><em>we fail to reject the null hypothesis</em></strong>. Overall, the model explains approximately 38.27% of the variance in Lyme disease cases, indicating that while these factors are important, other variables may also play a role in driving the trends we observe.</p>
+<p>The model above revealed several key insights into the factors influencing Lyme disease cases in Maine. P-values for the temperature (degf) and rainfall (inches) are significant predictors of Lyme disease cases, with both variables showing a positive relationship with the number of cases. This means that as temperatures and precipitation increase, so do the instances of Lyme disease. Additionally, coastal was not significant in predicting Lyme disease cases. This means <strong><em>we fail to reject the null hypothesis</em></strong>. Overall, the model explains approximately 36% of the variance in Lyme disease cases, indicating that while these factors are important, other variables may also play a role in driving the trends we observe.</p>
 </section>
 <section id="omitted-variable-bias" class="level3">
 <h3 class="anchored" data-anchor-id="omitted-variable-bias">Omitted Variable Bias?</h3>
 <p>Since our model had such a low R Squared, it points to the potential of something missing. What about population? Surely the more people would mean more cases? Let’s add pop data for each year and county in the dataframe. Then check the head to verify.</p>
+<p><strong>Myth</strong>: <strong>Ticks Prefer Hairy People 🧔</strong> <strong><em>Reality Check: Ticks aren’t particularly interested in your grooming habits. They’re drawn to warmth, body odor, and the carbon dioxide you exhale—not your luscious locks.</em></strong></p>
 <section id="accounting-for-population" class="level4">
 <h4 class="anchored" data-anchor-id="accounting-for-population">Accounting for Population</h4>
 <div class="cell">
@@ -660,7 +665,7 @@ F-statistic: 16.62 on 4 and 43 DF,  p-value: 2.639e-08</code></pre>
 <section id="breakdown-of-changes" class="level4">
 <h4 class="anchored" data-anchor-id="breakdown-of-changes">Breakdown of Changes:</h4>
 <p><strong>Intercept:</strong></p>
-<p><strong>Before:</strong> -673.986 (p = 0.00140 **)</p>
+<p><strong>Before:</strong> -673.986 (p = 0.00140)</p>
 <p><strong>After:</strong> -210.200 (p = 0.49030)</p>
 <p>Change: The intercept changed significantly, indicating that the baseline count of cases (when all predictors are zero) has been adjusted to account for the influence of the population variable. The significance also dropped, becoming non-significant after adding population.</p>
 <p><strong>degf (degrees Fahrenheit):</strong></p>
@@ -668,15 +673,15 @@ F-statistic: 16.62 on 4 and 43 DF,  p-value: 2.639e-08</code></pre>
 <p><strong>After:</strong> -1.328 (p = 0.84764)</p>
 <p>Change: The coefficient for degf changed from positive to negative and became non-significant. This suggests that once population is accounted for, the impact of temperature on Lyme Disease cases is not as substantial.</p>
 <p><strong>inches (rainfall):</strong></p>
-<p><strong>Before:</strong> 4.606 (p = 0.00344 **)</p>
-<p><strong>After:</strong> 6.597 (p = 0.00117 **)</p>
+<p><strong>Before:</strong> 4.606 (p = 0.00344)</p>
+<p><strong>After:</strong> 6.597 (p = 0.00117)</p>
 <p>Change: The coefficient for inches increased, indicating a stronger positive relationship between rainfall and Lyme Disease cases. It remained significant, suggesting that rainfall is an important predictor even when population is included.</p>
 <p><strong>coastal (coastal status):</strong></p>
-<p><strong>Before:</strong> 40.153 (p = 0.07230 .)</p>
-<p><strong>After:</strong> 61.530 (p = 0.04976 *)</p>
+<p><strong>Before:</strong> 40.153 (p = 0.07230)</p>
+<p><strong>After:</strong> 61.530 (p = 0.04976)</p>
 <p>Change: The coefficient for coastal increased and became significant at the 0.05 level. This indicates that coastal counties have a higher number of cases, and this relationship is more pronounced after accounting for population.</p>
 <p><strong>population:</strong></p>
-<p>0.000564 (p = 3.12e-05 ***)</p>
+<p>0.000564 (p = 3.12e-05)</p>
 <p>Change: The new population variable shows a positive and highly significant relationship with Lyme Disease cases. As the population increases, the number of cases increases, highlighting the importance of population density in understanding Lyme Disease spread.</p>
 <p><strong>Summary: Adding the population variable:</strong> - Adjusts the intercept and the effects of other predictors. - Decreases the significance of temperature (degf) as a predictor. - Increases the importance and significance of rainfall (inches) and coastal status (coastal). - Adjusted R^2 almost doubled. Now 57% of the variance in the response variable (cases) is explained by the predictors in the model</p>
 </section>
@@ -795,9 +800,10 @@ F-statistic: 16.62 on 4 and 43 DF,  p-value: 2.639e-08</code></pre>
 
 <ol>
 <li id="fn1"><p>https://thedownlo.com/north-america-travel/usa-travel/maine/the-ultimate-maine-bucketlist-58-things-to-do-in-maine/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>https://www.kitteryme.gov/climate-action-planning-kittery/pages/climate-change-maine<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>https://www.noaa.gov/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>https://www.cdc.gov/<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://www.whatsthatbug.com/do-ticks-survive-in-winter/<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://www.kitteryme.gov/climate-action-planning-kittery/pages/climate-change-maine<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>https://www.noaa.gov/<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>https://www.cdc.gov/<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

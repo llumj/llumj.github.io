@@ -24,9 +24,11 @@ editor_options:
 Maine, often known as the Pine Tree State, is a treasure trove of natural beauty and is the place I spent many summers as a kid. From its rugged coastline dotted with iconic lighthouses to its vast forests and pristine lakes, Maine offers a breathtaking landscape for outdoor enthusiasts. The state is home to Acadia National Park, where visitors can hike granite peaks, explore rocky shores, and witness stunning sunrises from Cadillac Mountain. Maine is also famous for its delicious seafood, particularly its succulent lobster, which has become a symbol of the state's culinary heritage. Quaint coastal towns, vibrant fall foliage, and a rich maritime history make Maine a captivating destination for travelers and nature lovers alike.
 
 ### Maine, A Changing Climate 
+There is a big myth that cold winters kill ticks. While this is somewhat factual, it is not that simple. You can look at Maine's winters as part of the regulation of ticks. If the they do not find away to escape freezing temperatures, like hiding in leaf litter, they can die. In fact, as much as 20% of ticks can die during cold season [^5]. 
+
 In a world where the effects of climate change are becoming increasingly evident, Maine has not been immune to its impacts. Over the past century, the state known for its beautiful autumn colors, rocky coast and snowy winters, has experienced a significant shift in its climate. Changes that include average yearly temperatures rising by 3.5 degrees (F) and annual precipitation increasing by 6 inches [^2]. These climatic changes have brought about a range of environmental consequences, one of which is the proliferation of ticks. As Maine's climate becomes warmer and wetter, the conditions become more favorable for ticks to thrive, posing new challenges for both public health and the natural ecosystem.
 
-While ticks may seem like tiny, insignificant creatures, their presence carries significant risks. Among the most concerning is Lyme disease, a serious illness transmitted through the bite of infected ticks. Lyme disease can cause a range of symptoms, from fever and fatigue to severe neurological and cardiovascular issues if left untreated. This makes understanding and managing tick populations crucial for public health. Our comprehensive analysis delves into the environmental and biological factors contributing to the rise in tick numbers, aiming to uncover patterns and provide strategies to mitigate the risks associated with these persistent pests.
+While ticks may seem like tiny, insignificant creatures, their presence carries significant risks. Among the most concerning is Lyme disease (LD), a serious illness transmitted through the bite of infected ticks. Lyme disease can cause a range of symptoms, from fever and fatigue to severe neurological and cardiovascular issues if left untreated. This makes understanding and managing tick populations crucial for public health. Our comprehensive analysis delves into the environmental and biological factors contributing to the rise in tick numbers, aiming to uncover patterns and provide strategies to mitigate the risks associated with these persistent pests.
 
 ### The Hypothesis 
 The two main hypothesis being tested in this blog are:
@@ -94,6 +96,11 @@ precip_22 <- read_csv(here::here("data", "precip2022.csv"))
 # Lyme disease data sets
 LD_data <- read_csv(here::here("data", "LD_Case_Counts_by_County_2022.csv"))
 ```
+
+**A Quick Note:** This GIF accurately describes how my computer feels about importing excel files with complex columns and rows:
+
+![](excel_gif.gif)
+
 
 As you can see the data and temp data is separated by year. The LD_data variable holds every single LD cases in the country over a 20 years span. We do not want that, so lets filter that down to just cases in Maine from 2016-2022 and check out the first few rows.
 
@@ -250,7 +257,7 @@ temp_ld_plot <- ggplot(LD_maine_weather, aes(x = degf, y = cases)) +
 print(temp_ld_plot)
 ```
 
-🚨 Degf (degree Fahrenheit): For each 1°F increase, the LD cases are expected to increase by approximately 18.158 cases. p-value (5.25e-09) indicates this relationship is statistically significant.🚨
+🚨 Degf (degree Fahrenheit): For each 1°F increase, the LD cases are expected to increase by approximately 19 cases. P-value (2.78e-09) indicates this relationship is statistically significant.🚨
 
 ##### Model for Rain and LD Cases
 ```{r}
@@ -274,7 +281,10 @@ rain_ld_plot <- ggplot(LD_maine_weather, aes(x = inches, y = cases)) +
 print(rain_ld_plot)
 ```
 
-🚨 Inches (6.008): For each additional inch, the number of LD cases is expected to increase by approximately 6.008. This relationship is also statistically significant given the very low p-value (0.000466).🚨
+🚨 Inches (6.008): For each additional inch, the number of LD cases is expected to increase by approximately 6. This relationship is also statistically significant given the very low p-value (0.00114).🚨
+
+**Tick Dating 🌹:** ***Ticks have a rather unusual "dating" life. Female ticks can lay thousands of eggs after a good meal. So, when a female tick says she's going out for dinner, she's really planning a family reunion... with thousands of new ticks.***
+
 
 ### First Hypothysis, Reject the Null 
 It should not be that surprising that temperature and precipitation are indeed significant predictors in the number of LD cases. Still it is important to check your assumptions. Without checking this information, our model could be seriously flawed.
@@ -288,10 +298,13 @@ print(summary(lm_model))
 ```
 
 ### Second Hypothysis, Fail to Reject the Null
-The model above revealed several key insights into the factors influencing Lyme disease cases in Maine. P-values for the temperature (degf) and rainfall (inches) are significant predictors of Lyme disease cases, with both variables showing a positive relationship with the number of cases. This means that as temperatures and precipitation increase, so do the instances of Lyme disease. Additionally, coastal was not significant in predicting Lyme disease cases. This means ***we fail to reject the null hypothesis***. Overall, the model explains approximately 38.27% of the variance in Lyme disease cases, indicating that while these factors are important, other variables may also play a role in driving the trends we observe. 
+The model above revealed several key insights into the factors influencing Lyme disease cases in Maine. P-values for the temperature (degf) and rainfall (inches) are significant predictors of Lyme disease cases, with both variables showing a positive relationship with the number of cases. This means that as temperatures and precipitation increase, so do the instances of Lyme disease. Additionally, coastal was not significant in predicting Lyme disease cases. This means ***we fail to reject the null hypothesis***. Overall, the model explains approximately 36% of the variance in Lyme disease cases, indicating that while these factors are important, other variables may also play a role in driving the trends we observe. 
 
 ### Omitted Variable Bias?
 Since our model had such a low R Squared, it points to the potential of something missing. What about population? Surely the more people would mean more cases? Let's add pop data for each year and county in the dataframe. Then check the head to verify.
+
+**Myth**: **Ticks Prefer Hairy People 🧔**
+***Reality Check: Ticks aren’t particularly interested in your grooming habits. They’re drawn to warmth, body odor, and the carbon dioxide you exhale—not your luscious locks.***
 
 #### Accounting for Population 
 ```{r}
@@ -329,7 +342,7 @@ print(summary(lm_pop))
 #### Breakdown of Changes:
 **Intercept:**
 
-**Before:** -673.986 (p = 0.00140 **)
+**Before:** -673.986 (p = 0.00140)
 
 **After:** -210.200 (p = 0.49030)
 
@@ -345,23 +358,23 @@ Change: The coefficient for degf changed from positive to negative and became no
 
 **inches (rainfall):**
 
-**Before:** 4.606 (p = 0.00344 **)
+**Before:** 4.606 (p = 0.00344)
 
-**After:** 6.597 (p = 0.00117 **)
+**After:** 6.597 (p = 0.00117)
 
 Change: The coefficient for inches increased, indicating a stronger positive relationship between rainfall and Lyme Disease cases. It remained significant, suggesting that rainfall is an important predictor even when population is included.
 
 **coastal (coastal status):**
 
-**Before:** 40.153 (p = 0.07230 .)
+**Before:** 40.153 (p = 0.07230)
 
-**After:** 61.530 (p = 0.04976 *)
+**After:** 61.530 (p = 0.04976)
 
 Change: The coefficient for coastal increased and became significant at the 0.05 level. This indicates that coastal counties have a higher number of cases, and this relationship is more pronounced after accounting for population.
 
 **population:**
 
-0.000564 (p = 3.12e-05 ***)
+0.000564 (p = 3.12e-05)
 
 Change: The new population variable shows a positive and highly significant relationship with Lyme Disease cases. As the population increases, the number of cases increases, highlighting the importance of population density in understanding Lyme Disease spread.
 
@@ -464,4 +477,4 @@ Despite these constraints, our findings provide valuable insights into the envir
 
 [^4]: https://www.cdc.gov/
 
-
+[^5]: https://www.whatsthatbug.com/do-ticks-survive-in-winter/
