@@ -10,7 +10,7 @@ format:
   html: 
     css: styles.scss
 date: 2024-12-10
-categories: [Quarto, MEDS, Python, EDS220]
+categories: [Quarto, MEDS, UCSB, EDS222]
 toc: true
 image: maine.jpg
 bibliography: references.bib
@@ -354,7 +354,7 @@ Change: The intercept changed significantly, indicating that the baseline count 
 
 **After:** -1.328 (p = 0.84764)
 
-Change: The coefficient for degf changed from positive to negative and became non-significant. This suggests that once population is accounted for, the impact of temperature on Lyme Disease cases is not as substantial.
+Change: The coefficient for degf changed from positive to negative and became non-significant. This suggests that once population is accounted for, the impact of temperature on Lyme Disease cases is not as substantial. Note: I Will cover why temp coefficient being negative in this context seems odd in the limitations section.
 
 **inches (rainfall):**
 
@@ -462,10 +462,12 @@ plot(cumberland_forecast$forecast, main = "Forecast for Cumberland")
 The forecast section starts from 2023 onward, shaded in blue and gray, with three blue dots indicating forecasted values for 2023, 2024, and 2025. The shaded blue area around the forecasted values represents 80% confidence interval. Meaning that we are 80% confident that cases will fall in this range. The entire area including the gray, represents 95% confidence interval. Giving an idea of the potential range of future values.
 
 #### Lastly, Limitations 
-As comprehensive as our analysis is, it's important to acknowledge its limitations. 
-- The data for temperature, precipitation, and Lyme disease cases were grouped by year, which does not capture the nuances of seasonality. 
-- Humidity, a significant factor in tick populations, was not included, leading to potential omitted variable bias. 
-- Additionally, the seven-year span of our data set is relatively short for making long-term forecasts. 
+As comprehensive as our analysis is, it's important to acknowledge its limitations:
+
+- The **data** for temperature, precipitation, and Lyme disease cases were **grouped by year**, which does **not capture** the nuances of **seasonality**. 
+- **Humidity**, a significant factor in tick populations, was **not included**, leading to potential omitted variable bias. 
+- The **coefficient for degf was negative**. This is a red flag from what we know about ticks. It means there could be more predictors unaccounted for. 
+- Additionally, the **seven-year span** of our data set **is relatively short** for making long-term forecasts. 
 Despite these constraints, our findings provide valuable insights into the environmental factors influencing tick dynamics in Maine. Moving forward, incorporating more granular data and additional variables will enhance our understanding and predictive accuracy. But for now, don't forget your tick check!
 
 
