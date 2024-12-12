@@ -161,8 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                           <div class="quarto-categories">
                 <div class="quarto-category">Quarto</div>
                 <div class="quarto-category">MEDS</div>
-                <div class="quarto-category">Python</div>
-                <div class="quarto-category">EDS220</div>
+                <div class="quarto-category">UCSB</div>
+                <div class="quarto-category">EDS222</div>
               </div>
                   </div>
   </div>
@@ -671,7 +671,7 @@ F-statistic: 16.62 on 4 and 43 DF,  p-value: 2.639e-08</code></pre>
 <p><strong>degf (degrees Fahrenheit):</strong></p>
 <p><strong>Before:</strong> 12.227 (p = 0.00354)</p>
 <p><strong>After:</strong> -1.328 (p = 0.84764)</p>
-<p>Change: The coefficient for degf changed from positive to negative and became non-significant. This suggests that once population is accounted for, the impact of temperature on Lyme Disease cases is not as substantial.</p>
+<p>Change: The coefficient for degf changed from positive to negative and became non-significant. This suggests that once population is accounted for, the impact of temperature on Lyme Disease cases is not as substantial. Note: I Will cover why temp coefficient being negative in this context seems odd in the limitations section.</p>
 <p><strong>inches (rainfall):</strong></p>
 <p><strong>Before:</strong> 4.606 (p = 0.00344)</p>
 <p><strong>After:</strong> 6.597 (p = 0.00117)</p>
@@ -789,7 +789,13 @@ F-statistic: 16.62 on 4 and 43 DF,  p-value: 2.639e-08</code></pre>
 <p>The forecast section starts from 2023 onward, shaded in blue and gray, with three blue dots indicating forecasted values for 2023, 2024, and 2025. The shaded blue area around the forecasted values represents 80% confidence interval. Meaning that we are 80% confident that cases will fall in this range. The entire area including the gray, represents 95% confidence interval. Giving an idea of the potential range of future values.</p>
 <section id="lastly-limitations" class="level4">
 <h4 class="anchored" data-anchor-id="lastly-limitations">Lastly, Limitations</h4>
-<p>As comprehensive as our analysis is, it’s important to acknowledge its limitations. - The data for temperature, precipitation, and Lyme disease cases were grouped by year, which does not capture the nuances of seasonality. - Humidity, a significant factor in tick populations, was not included, leading to potential omitted variable bias. - Additionally, the seven-year span of our data set is relatively short for making long-term forecasts. Despite these constraints, our findings provide valuable insights into the environmental factors influencing tick dynamics in Maine. Moving forward, incorporating more granular data and additional variables will enhance our understanding and predictive accuracy. But for now, don’t forget your tick check!</p>
+<p>As comprehensive as our analysis is, it’s important to acknowledge its limitations:</p>
+<ul>
+<li>The <strong>data</strong> for temperature, precipitation, and Lyme disease cases were <strong>grouped by year</strong>, which does <strong>not capture</strong> the nuances of <strong>seasonality</strong>.</li>
+<li><strong>Humidity</strong>, a significant factor in tick populations, was <strong>not included</strong>, leading to potential omitted variable bias.</li>
+<li>The <strong>coefficient for degf was negative</strong>. This is a red flag from what we know about ticks. It means there could be more predictors unaccounted for.</li>
+<li>Additionally, the <strong>seven-year span</strong> of our data set <strong>is relatively short</strong> for making long-term forecasts. Despite these constraints, our findings provide valuable insights into the environmental factors influencing tick dynamics in Maine. Moving forward, incorporating more granular data and additional variables will enhance our understanding and predictive accuracy. But for now, don’t forget your tick check!</li>
+</ul>
 
 
 </section>
