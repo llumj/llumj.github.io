@@ -461,7 +461,7 @@ plot(cumberland_forecast$forecast, main = "Forecast for Cumberland")
 
 The forecast section starts from 2023 onward, shaded in blue and gray, with three blue dots indicating forecasted values for 2023, 2024, and 2025. The shaded blue area around the forecasted values represents 80% confidence interval. Meaning that we are 80% confident that cases will fall in this range. The entire area including the gray, represents 95% confidence interval. Giving an idea of the potential range of future values.
 
-#### Lastly, Limitations 
+### Lastly, Limitations 
 As comprehensive as our analysis is, it's important to acknowledge its limitations:
 
 - The **data** for temperature, precipitation, and Lyme disease cases were **grouped by year**, which does **not capture** the nuances of **seasonality**. 
