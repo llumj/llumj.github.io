@@ -57,8 +57,10 @@ Ticks have their own quirky version of the circle of life, which might as well b
 ***Contrary to the acrobatics you might imagine, ticks don’t jump, fly, or parachute down from trees like tiny ninjas. They generally hang out in grass and bushes, waiting to hitch a ride on unsuspecting passersby.***
 
 
-### The Data
-For the analysis in this blog I used data from The National Oceanic and Atmospheric Administration (NOAA) [^3] and The Centers for Disease Control (CDC) [^4]. From NOAA this includes average yearly temperature and precipitation for each county from 2016-2022. From the CDC this was total number of Lyme disease (LD) cases for each county form the same time range. Each year was a separate .csv file that needed to be filtered and joined with the LD cases dataframe. Lets peak a some quick snapshots of what that looked like!
+### The Data and Access
+For the analysis in this blog I used data from The National Oceanic and Atmospheric Administration (NOAA) [^3] and The Centers for Disease Control (CDC) [^4]. You can also access my data through the data folder in my repository for this website or through direct links. Both will be at the end of this blog, under the heading "Where Can I Find The Data?". 
+
+From NOAA this includes average yearly temperature and precipitation for each county from 2016-2022. From the CDC this was total number of Lyme disease (LD) cases for each county form the same time range. Each year was a separate .csv file that needed to be filtered and joined with the LD cases dataframe. Lets peak a some quick snapshots of what that looked like!
 
 #### Import neccessary packages 
 ```{r}
@@ -76,25 +78,25 @@ library(forecast)
 #| message: false 
 #| warning: false
 # Temp data sets
-temp_16 <- read_csv(here::here("data", "temp2016.csv"))
-temp_17 <- read_csv(here::here("data", "temp2017.csv"))
-temp_18 <- read_csv(here::here("data", "temp2018.csv"))
-temp_19 <- read_csv(here::here("data", "temp2019.csv"))
-temp_20 <- read_csv(here::here("data", "temp2020.csv"))
-temp_21 <- read_csv(here::here("data", "temp2021.csv"))
-temp_22 <- read_csv(here::here("data", "temp2022.csv"))
+temp_16 <- read_csv(here::here("data", "maine_data", "temp2016.csv"))
+temp_17 <- read_csv(here::here("data", "maine_data", "temp2017.csv"))
+temp_18 <- read_csv(here::here("data", "maine_data", "temp2018.csv"))
+temp_19 <- read_csv(here::here("data", "maine_data", "temp2019.csv"))
+temp_20 <- read_csv(here::here("data", "maine_data", "temp2020.csv"))
+temp_21 <- read_csv(here::here("data", "maine_data",  "temp2021.csv"))
+temp_22 <- read_csv(here::here("data", "maine_data", "temp2022.csv"))
 
 # Precipitation data sets
-precip_16 <- read_csv(here::here("data", "precip2016.csv"))
-precip_17 <- read_csv(here::here("data", "precip2017.csv"))
-precip_18 <- read_csv(here::here("data", "precip2018.csv"))
-precip_19 <- read_csv(here::here("data", "precip2019.csv"))
-precip_20 <- read_csv(here::here("data", "precip2020.csv"))
-precip_21 <- read_csv(here::here("data", "precip2021.csv"))
-precip_22 <- read_csv(here::here("data", "precip2022.csv"))
+precip_16 <- read_csv(here::here("data", "maine_data", "precip2016.csv"))
+precip_17 <- read_csv(here::here("data", "maine_data", "precip2017.csv"))
+precip_18 <- read_csv(here::here("data", "maine_data", "precip2018.csv"))
+precip_19 <- read_csv(here::here("data", "maine_data", "precip2019.csv"))
+precip_20 <- read_csv(here::here("data", "maine_data", "precip2020.csv"))
+precip_21 <- read_csv(here::here("data", "maine_data", "precip2021.csv"))
+precip_22 <- read_csv(here::here("data", "maine_data", "precip2022.csv"))
 
 # Lyme disease data sets
-LD_data <- read_csv(here::here("data", "LD_Case_Counts_by_County_2022.csv"))
+LD_data <- read_csv(here::here("data", "maine_data", "LD_Case_Counts_by_County_2022.csv"))
 ```
 
 **A Quick Note:** This GIF accurately describes how my computer feels about importing Excel Spreadsheets with complex columns and rows:
@@ -469,6 +471,18 @@ As comprehensive as our analysis is, it's important to acknowledge its limitatio
 - The **coefficient for degf was negative**. This is a red flag from what we know about ticks. It means there could be more predictors unaccounted for. 
 - Additionally, the **seven-year span** of our data set **is relatively short** for making long-term forecasts. 
 Despite these constraints, our findings provide valuable insights into the environmental factors influencing tick dynamics in Maine. Moving forward, incorporating more granular data and additional variables will enhance our understanding and predictive accuracy. But for now, don't forget your tick check!
+
+### Where Can I Find The Data?
+
+
+Check out my repository [here](https://github.com/llumj/llumj.github.io)
+
+Or if you want to download them directly from the websites, CDC Lyme disease data can be found [here](https://www.cdc.gov/lyme/data-research/facts-stats/lyme-disease-case-map.html). Precipitation and temperature data can be downloaded [here](https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping)
+
+
+
+
+
 
 
 [^1]: https://thedownlo.com/north-america-travel/usa-travel/maine/the-ultimate-maine-bucketlist-58-things-to-do-in-maine/
