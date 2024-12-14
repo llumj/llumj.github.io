@@ -9,7 +9,7 @@ author:
 format: 
   html: 
     css: styles.scss
-date: 2024-12-10
+date: 2024-12-11
 categories: [Quarto, MEDS, UCSB, EDS222]
 toc: true
 image: maine.jpg
