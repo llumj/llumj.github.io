@@ -98,7 +98,8 @@ emissions_by_year <- emissions_by_year %>%
                        'TWN' = 'Taiwan',
                        'USA' = 'United States'))
 
-#### MISC #### themes and fonts I will use
+
+#### MISC ####
 font <- "Gudea"
 font_add_google(family=font, font, db_cache = TRUE)
 fa_path <- systemfonts::font_info(family = "Font Awesome 6 Brands")[["path"]]
@@ -118,7 +119,7 @@ p_1 <- emissions_by_year %>%
               unhighlighted_params = list(colour = alpha("grey85", 1))) +
   geom_text(data=emissions_by_year %>%
               slice_max(year),
-             aes(x=year, y=total_co2_mt, color=flag, label = round(total_co2_mt)),
+             aes(x=year, y=total_co2_mt, color=flag, label = scales::comma(round(total_co2_mt))),
              hjust = .65, vjust = -1, size=2.5, family=font, fontface="bold") +
   scale_color_met_d(name="Redon") +
   scale_y_continuous(labels = c("","","","","")
@@ -156,10 +157,10 @@ p_1 <- emissions_by_year %>%
   )
 
 
-# create subtitle 
+
 text <- tibble(
   x = 0, y = 0,
-  label = "Understanding emissions from global fisheries is important to curving Greenhouse Gasses associated with the production of seafood. This graph represents a 5 year trend by the worlds top emittors. The global average for emissions is around 212,000 metric tons for this time span. A number that is dwarfed by these countries"
+  label = "Understanding emissions from global fisheries is important to curbing Greenhouse Gasses associated with the production of seafood. This graph represents a 5 year trend by the world's top emittors. The global average for emissions is around 212,000 metric tons for this time span. A number that is dwarfed by these countries"
 )
 
 sub <- ggplot(text, aes(x = x, y = y)) +
@@ -173,7 +174,7 @@ sub <- ggplot(text, aes(x = x, y = y)) +
   theme(plot.background = element_rect(color=bg, fill=bg))
 
 
-# create title
+# TITLE
 text2 <- tibble(
   x = 0, y = 0,
   label = "**Global Fisheries Emissions: 5-Year Trend**<br>"
@@ -189,7 +190,6 @@ title <- ggplot(text2, aes(x = x, y = y)) +
   theme_void() +
   theme(plot.background = element_rect(color=bg, fill=bg))
 
-# put together 
 finalPlot <- ((title+sub)/p_1) +
   plot_layout(heights = c(1, 2)) +
   plot_annotation(
@@ -198,6 +198,8 @@ finalPlot <- ((title+sub)/p_1) +
                                                 size=6, color=txt_col, 
                                                 lineheight = 1.2),
                 plot.margin = margin(20,20,20,20),))
+
+print(finalPlot)
 
 showtext_opts(dpi = 600) 
 
@@ -222,8 +224,7 @@ china_emissions <- emissions_years %>%
   mutate(global_avg_co2_mt = mean(total_co2_mt)) %>% 
   filter(flag %in% top_9$flag)
 
-# plot against all other countires 
-p_2 <- china_emissions %>% 
+p_4 <- china_emissions %>% 
   ggplot()  +
   geom_point(data=china_emissions %>% 
                slice_max(year),
@@ -234,8 +235,8 @@ p_2 <- china_emissions %>%
   geom_text(data=china_emissions %>% 
               filter(flag == "CHN") %>%
               slice_max(year),
-             aes(x=year, y=total_co2_mt, color=flag, label = round(total_co2_mt)),
-             hjust = .65, vjust = -1, size=5, family=font, fontface="bold") +
+             aes(x=year, y=total_co2_mt, color=flag, label = scales::comma(round(total_co2_mt))),
+             hjust = .90, vjust = -1, size=5, family=font, fontface="bold") +
   scale_color_met_d(name="Redon") + 
   labs(title = "China") +
   theme(
@@ -250,13 +251,15 @@ p_2 <- china_emissions %>%
                                   face="bold", margin=margin(20,0,30,0))
         )
 
+print(p_4)
+
 showtext_opts(dpi = 600) 
 
 # Save the figure
 ggsave("China_fisheries.png",
       bg=bg,
       height = 8,
-      width = 5,
+      width = 8,
       dpi = 600)
 ```
 
@@ -285,30 +288,41 @@ total_emissions <- total_19_24 %>%
   mutate(percent_chng = ifelse(year == 2024, 
                                (total_co2_mt - total_co2_mt[year == 2019]) / total_co2_mt[year == 2019] * 100, 
                                NA)) %>% 
-  drop_na()
+  drop_na() %>% 
+  ungroup()
 
 # Add a column with your condition for the color
 total_emissions <- total_emissions %>% 
   mutate(mycolor = ifelse(percent_chng>0, "type1", "type2"))
- 
-# plot
-p_3 <- ggplot(total_emissions, aes(x=flag, y=percent_chng)) +
-  geom_segment(aes(x=flag, xend=flag, y=0, yend=percent_chng, color=mycolor), size=8, alpha=0.9) + # Increased segment thickness
+
+# Arrange data in ascending order of percent_chng
+total_emissions <- total_emissions %>%
+  arrange(percent_chng) # Use ascending order
+
+# Set the factor levels for `flag` based on the new order
+total_emissions <- total_emissions %>%
+  mutate(flag = factor(flag, levels = flag)) # Match order to factor levels
+
+# Plot the data
+p_2 <- ggplot(total_emissions, aes(x=flag, y=percent_chng)) +
+  geom_segment(aes(x=flag, xend=flag, y=0, yend=percent_chng, color=mycolor), size=8, alpha=0.9) +
   theme_light() +
   theme(
     legend.position = "none",
     panel.border = element_blank(),
-    axis.text.x = element_text(size = 10), # Make x-axis labels smaller
-    axis.text.y = element_text(size = 10),  # Make y-axis labels smaller
+    axis.text.x = element_text(size = 10), 
+    axis.text.y = element_text(size = 10),  
     axis.title.x = element_text(size = 5, margin = margin(t = 10)),
     plot.title = element_text(size = 14),
-    plot.background = element_rect(color = bg, fill = bg), # Match background
-    panel.background = element_rect(color = bg, fill = bg)) + # Match panel background 
-  labs(title = "CO2 Percent Change") +
+    plot.background = element_rect(color = bg, fill = bg), 
+    panel.background = element_rect(color = bg, fill = bg)
+    ) +
+  labs(title = "CO<sub>2</sub> Percent Change Over 5 Years") +
   xlab("") +
   ylab("Percent Change") + 
-  coord_flip() + 
-  scale_color_manual(values = c("type1" = "#046CBB", "type2" = "#B30600")) + # Set colors
+  coord_flip() +
+  scale_y_continuous(labels = scales::label_percent(scale = 1)) + 
+  scale_color_manual(values = c("type1" = "grey60", "type2" = "#B30600")) +
   theme_ipsum() +
   theme(plot.title = element_markdown(hjust=.5,
                                   size=15, 
@@ -316,7 +330,13 @@ p_3 <- ggplot(total_emissions, aes(x=flag, y=percent_chng)) +
                                   lineheight=.8, 
                                   face="bold"),
         axis.title.x = element_blank(),
-        legend.position = "none")
+        legend.position = "none",
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
+
+
+
+print(p_2)
 
 
 showtext_opts(dpi = 600) 
@@ -328,6 +348,7 @@ ggsave("total_change_co2.png",
       width = 5,
       dpi = 600)
 ```
+
 ![](total_change_co2.png)
 #### **Plot 4**
 ```{r}
@@ -359,7 +380,7 @@ emission_vessel <- emission_vessel %>%
 
 # show the top vessel emitters
 p_4 <- ggplot(emission_vessel, aes(vessel_class, y=total_co2_mt, fill=vessel_class)) +
-  geom_bar(stat="identity", color="black", fill = "aliceblue") +
+  geom_bar(stat="identity", color="black", fill = "grey60") +
   scale_fill_manual(values=rep("grey", 10)) +
   theme_ipsum() +
   theme(
