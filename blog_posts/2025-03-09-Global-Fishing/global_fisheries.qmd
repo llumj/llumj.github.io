@@ -34,9 +34,7 @@ There are some important questions that I wanted to address when making this inf
  - Does the trend seem sustainable? 
 
 ### The Viz 
-![](final_infographic.png){fig-alt = "Global fishing emissions trends over 5 years. The infographic shows CO2 pollution trends for the top 9 countries from 2019 to 2024 and the percent change in CO2 emissions as well as the vessels reponsible for the most emissions in that time frame."}
-
-
+![](final_infographic.png){fig-alt="Global fishing emissions trends over 5 years. The infographic shows CO2 pollution trends for the top 9 countries from 2019 to 2024 and the percent change in CO2 emissions as well as the vessels reponsible for the most emissions in that time frame"}
 
 ### The Approach, AKA How did I come to this design?
 *
