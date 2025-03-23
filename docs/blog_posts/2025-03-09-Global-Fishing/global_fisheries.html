@@ -229,11 +229,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="the-cost-of-global-fisheries" class="level3">
 <h3 class="anchored" data-anchor-id="the-cost-of-global-fisheries">The Cost of Global Fisheries</h3>
-<p>When we think about seafood, we think delicious lobster, shrimp, mussels and tuna. Our senses can be positive and negative, like thinking about how fresh it can be and how maybe not so good it can smell. Maybe we also think about the cost, we all know a really good sushi restaurant comes at a price. But what if you look a little deeper? Look past the seafood itself, and look more closely at the big, often diesel powered, machines used to catch them. The smoke, oil, air pollution, greenhouse gasses are all a byproduct of ocean fishing. This makes you quickly realize the environmental implications of such a massive operation. When you think about the shear number of vessels, quantifying this pollution seems almost impossible. However, new advancement in Automated Identification System (AIS) tracking as well as satellite data, this challenge has become more manageable.</p>
+<p>When we think about seafood, we think delicious lobster, shrimp, mussels and tuna. Our senses can be positive and negative, like thinking about how fresh it can be and how maybe not so good it can smell. Maybe we also think about the cost, we all know a really good sushi restaurant comes at a price. But what if you look a little deeper? Look past the seafood itself, and look more closely at the big, often diesel powered, machines used to catch them. The smoke, oil, air pollution, greenhouse gasses are all a byproduct of ocean fishing. This makes you quickly realize the environmental implications of such a massive operation. When you think about the shear number of vessels, quantifying this pollution seems almost impossible. However, with new advancement in Automated Identification System (AIS) tracking and satellite data, this challenge has become more manageable.</p>
 </section>
 <section id="the-data" class="level3">
 <h3 class="anchored" data-anchor-id="the-data">The Data</h3>
-<p>The new dataset has been provided by emLab and Global Fishing Watch. This new data set has geographical locations for every single AIS fishing vessel in the world as well as vessels that are known as the dark fleet, meaning they do not have AIS and do not broadcast a location. With this dataset not only can we can get an idea of the total CO2 pollution associated with global fisheries, but we can also see which countries standout as the biggest contributors. These are important first steps if we want to curve emissions associated with seafood production.</p>
+<p>The novel dataset has been provided by emLab and Global Fishing Watch. This new data set has geographical locations for every single AIS fishing vessel in the world as well as vessels that are known as the dark fleet, meaning they do not have AIS and do not broadcast a location. With this dataset not only can we can get an idea of the total CO2 pollution associated with global fisheries, but we can also see which countries standout as the biggest contributors. These are important first steps if we want to curb emissions associated with seafood production.</p>
 </section>
 <section id="the-goalsquestions-to-address" class="level3">
 <h3 class="anchored" data-anchor-id="the-goalsquestions-to-address">The Goals/Questions to Address</h3>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-viz" class="level3">
 <h3 class="anchored" data-anchor-id="the-viz">The Viz</h3>
-<p><img src="final_infographic.png" class="img-fluid"></p>
+<p><img src="final_infographic.png" class="img-fluid" alt="Global fishing emissions trends over 5 years. The infographic shows CO2 pollution trends for the top 9 countries from 2019 to 2024 and the percent change in CO2 emissions as well as the vessels reponsible for the most emissions in that time frame"></p>
 </section>
 <section id="the-approach-aka-how-did-i-come-to-this-design" class="level3">
 <h3 class="anchored" data-anchor-id="the-approach-aka-how-did-i-come-to-this-design">The Approach, AKA How did I come to this design?</h3>
@@ -257,12 +257,12 @@ When you look at this viz for the first time your eyes are immediately drawn to 
 </ul>
 <section id="typography-general-design-context-and-message" class="level4">
 <h4 class="anchored" data-anchor-id="typography-general-design-context-and-message"><strong>Typography, General Design, Context and Message</strong></h4>
-<p>The typography I wanted to keep simple. Text is bold where needed to tell the user, <strong>“Hey, there is some important context here!”</strong>. For example, it was important that In showed just how much more China fishing industry is contributing when compared to the top 10 polluters. I used some bold text within the graph to draw attention to what you are actually looking at. The general design I want to be linearly, meaning it flows well and does not require a complex path on paper. I chose to go wide instead of long because it feels more natural to how someone would read a book. Starting at the top left the reader quickly picks up on the context for the viz and its central message, which is clearly stated immediately in both the title and subtitle.</p>
+<p>The typography I wanted to keep simple. Text is bold where needed to tell the user, <strong>“Hey, there is some important context here!”</strong>. For example, it was important that I gave context to just how much more China fishing industry is contributing when compared to the top 10 polluters. I used some bold text within the graph to draw attention to what you are actually looking at. The general design I want to be linearly, meaning it flows well and does not require a complex path on paper. I chose to go wide instead of long because it feels more natural to how someone would read a book. Starting at the top left the reader quickly picks up on the context for the viz and its central message, which is clearly stated immediately in both the title and subtitle.</p>
 </section>
-<section id="dei-and-accessibilty" class="level4">
-<h4 class="anchored" data-anchor-id="dei-and-accessibilty"><strong>DEI and Accessibilty</strong></h4>
+<section id="dei-and-accessibility" class="level4">
+<h4 class="anchored" data-anchor-id="dei-and-accessibility"><strong>DEI and Accessibility</strong></h4>
 <p>I want to acknowledge that in today’s climate, DEI is more important than ever. While I think that some emissions can be related to countries who have less resources to invest in more modern equipment, my dataset does not allow me to explore that question.</p>
-<p>Accessibility was important to me when making the graphics. I utilized gghighight to make data standout for the reader. The colors matter less and act as a contrast to the background. I did create the final plot in affinity and was unsure how to add alt text to it. This is something I need to look into.</p>
+<p>Accessibility was important to me when making the graphics. I used the {gghighight} package to make data standout for the reader. The colors matter less and act as a contrast to the background. I did create the final plot in Affinity and added alt text in this quarto doc to make this information more available to everyone.</p>
 </section>
 </section>
 <section id="final-code-for-each-viz" class="level3">
